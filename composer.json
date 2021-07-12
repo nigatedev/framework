@@ -1,0 +1,20 @@
+{
+   "name": "nigatedev/core",
+   "description": "The Nigatedev PHP framework core application",
+    "type": "library",
+    "keywords": ["framework", "nigatedev", "Core"],
+    "license": "MIT",
+    
+    "autoload": {
+        "psr-4": {
+            "Nigatedev\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Abass Ben Cheik",
+            "email": "cheikabassben@gmail.com"
+        }
+    ],
+    "require": {}
+}
