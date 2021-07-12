@@ -27,9 +27,9 @@ class Router {
   
   protected array $routers = [];
   
-  public function get($path, $callable)
+  public function get($path, $callback)
   {
-     $this->routers['get'][$path] = $callable;
+     $this->routers['get'][$path] = $callback;
   }
   
   /**
@@ -40,12 +40,12 @@ class Router {
     $path = $this->request->getPath();
     $method = $this->request->getMethod();
     
-    $callable = $this->routers[$method][$path] ?? false;
+    $callback = $this->routers[$method][$path] ?? false;
     
-    if ($callable === false) {
+    if (!$callback) {
       echo "Not Found";
       exit;
     }
-      echo call_user_func($callable);
+      echo call_user_func($callback);
   }
 }
