@@ -5,7 +5,7 @@
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
  
-namespace Nigatedev;
+namespace Nigatedev\Core;
 
 use Nigatedev\Core\Request;
 use Nigatedev\Core\Router;
@@ -39,6 +39,6 @@ class Application {
    */
   public function run()
   {
-    return $this->router->pathResolver();
+    echo $this->router->pathResolver();
   }
 }

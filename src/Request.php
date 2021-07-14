@@ -15,6 +15,14 @@ namespace Nigatedev\Core;
 class Request {
   
   /**
+   * @return The method from the REQUEST_METHOD
+   */
+  public function getMethod()
+  {
+    return strtolower($_SERVER["REQUEST_METHOD"]);
+  }
+  
+  /**
    * @return The path from the REQUEST_URI
    */
   public function getPath()
@@ -22,17 +30,8 @@ class Request {
     $path = $_SERVER["REQUEST_URI"] ?? "/";
     $pos = strpos($path, "?");
     
-    if (!$pos) {
+    if(!$pos)
       return $path;
-    }
-    return substr($path, 0, $pos);
-  }
-  
-  /**
-   * @return The method from the REQUEST_METHOD
-   */
-  public function getMethod()
-  {
-    return strtolower($_SERVER["REQUEST_METHOD"]);
+        return substr($path, 0, $pos);
   }
 }
