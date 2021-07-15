@@ -7,8 +7,8 @@
  
 namespace Nigatedev\Core;
 
-use Nigatedev\Core\Request;
-use Nigatedev\Core\Router;
+use Nigatedev\Core\Http\Request;
+use Nigatedev\Core\Http\Router;
 
 /**
  * The Nigatedev PHP framework main core application class

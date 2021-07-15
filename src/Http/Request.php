@@ -5,7 +5,7 @@
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
 
-namespace Nigatedev\Core;
+namespace Nigatedev\Core\Http;
 
 /**
  * HTTP request class
