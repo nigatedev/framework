@@ -12,26 +12,28 @@ namespace Nigatedev\Core\Http;
  * 
  * @Author Abass Ben Cheik <abass@todaysdev.com>
  */
-class Request {
+class Request
+{
   
-  /**
-   * @return The method from the REQUEST_METHOD
-   */
-  public function getMethod()
-  {
-    return strtolower($_SERVER["REQUEST_METHOD"]);
-  }
+    /**
+     * @return The method from the REQUEST_METHOD
+     */
+    public function getMethod()
+    {
+        return strtolower($_SERVER["REQUEST_METHOD"]);
+    }
   
-  /**
-   * @return The path from the REQUEST_URI
-   */
-  public function getPath()
-  {
-    $path = $_SERVER["REQUEST_URI"] ?? "/";
-    $pos = strpos($path, "?");
+    /**
+     * @return The path from the REQUEST_URI
+     */
+    public function getPath()
+    {
+        $path = $_SERVER["REQUEST_URI"] ?? "/";
+        $pos = strpos($path, "?");
     
-    if(!$pos)
-      return $path;
+        if(!$pos) {
+            return $path;
+        }
         return substr($path, 0, $pos);
-  }
+    }
 }
