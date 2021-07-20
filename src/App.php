@@ -17,18 +17,13 @@ use Nigatedev\Core\Http\Router;
  * 
  * @Author Abass Ben Cheik <abass@todaysdev.com>
  */
-class App extends Trunk
+class App
 {
   
     /**
      * @var App instance
      */
     public static App $app;
-  
-    /**
-     * @var Trunk instance
-     */
-    public Trunk $trunk;
   
     /**
      * @var Diyan instance
@@ -58,7 +53,6 @@ class App extends Trunk
   
     public function __construct($appRoot)
     {
-        $this->trunk = new Trunk();
         $this->diyan = new Diyan();
         $this->request = new Request();
         $this->response = new Response();
