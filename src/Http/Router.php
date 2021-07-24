@@ -45,6 +45,14 @@ class Router
         $this->routes["get"][$path] = $callback;
 
     }
+    public function load($callback)
+    {
+      $callback = require_once($callback);
+      
+      foreach ($callback as $key => $value) {
+        $this->routes["get"][$key] = $value;
+      }
+    }
 
     /**
      * @throws HTTP \Exception 404  Not Found
@@ -66,7 +74,6 @@ class Router
         if ($path === "/") {
             $home = isset($this->routes[$method]["/"]) ?? false;
             if (!$home) {
-        
                 $this->response->setStatusCode(404);
                  echo str_replace(["{{title}}","{{body}}"], $this->diyan->homeNotFound(), $this->diyan->getBaseView());
                 die();
@@ -80,9 +87,14 @@ class Router
             die();
         }
 
-
         if (is_array($callback)) {
+          if(!class_exists($callback[0])){
+                $this->response->setStatusCode(404);
+                 echo str_replace(["{{title}}","{{body}}"], $this->diyan->homeNotFound(), $this->diyan->getBaseView());
+                die();
+          } else {
             $callback[0] = new $callback[0];
+          }
         }
         echo call_user_func($callback);
     }
