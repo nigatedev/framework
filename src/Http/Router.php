@@ -75,23 +75,22 @@ class Router
             $home = isset($this->routes[$method]["/"]) ?? false;
             if (!$home) {
                 $this->response->setStatusCode(404);
-                 echo str_replace(["{{title}}","{{body}}"], $this->diyan->homeNotFound(), $this->diyan->getBaseView());
-                die();
+                $this->diyan->setBody($this->diyan->getHomeNotFound());
+               return $this->diyan->render(null, []);
             }
         }
 
         if ($callback === false) {
             $this->response->setStatusCode(404);
-
-            echo str_replace(["{{title}}","{{body}}"], $this->diyan->notFound(), $this->diyan->getBaseView());
-            die();
+            $this->diyan->setBody($this->diyan->getNotFound());
+            return $this->diyan->render(null, []);
         }
 
         if (is_array($callback)) {
           if(!class_exists($callback[0])){
                 $this->response->setStatusCode(404);
-                 echo str_replace(["{{title}}","{{body}}"], $this->diyan->homeNotFound(), $this->diyan->getBaseView());
-                die();
+                $this->diyan->setBody($this->diyan->getNotFound());
+                return $this->diyan->render(null, []);
           } else {
             $callback[0] = new $callback[0];
           }
