@@ -1,7 +1,7 @@
 <?php
 /*
  * This file is part of the Nigatedev PHP framework package
- * 
+ *
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
  
@@ -11,7 +11,7 @@ use Nigatedev\Core\App;
 
 /**
  * App core controller
- * 
+ *
  * @Author Abass Ben Cheik <abass@todaysdev.com>
  */
 class Controller
@@ -26,5 +26,4 @@ class Controller
     {
         return App::$app->diyan->render($view, $params);
     }
-  
 }

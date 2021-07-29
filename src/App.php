@@ -1,7 +1,7 @@
 <?php
 /*
  * This file is part of the Nigatedev PHP framework core Application
- * 
+ *
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
  
@@ -12,9 +12,10 @@ use Nigatedev\Diyan\Diyan;
 use Nigatedev\Core\Http\Request;
 use Nigatedev\Core\Http\Response;
 use Nigatedev\Core\Http\Router;
+
 /**
  * The Nigatedev PHP framework main core application class
- * 
+ *
  * @Author Abass Ben Cheik <abass@todaysdev.com>
  */
 class App
@@ -62,8 +63,8 @@ class App
     }
   
     /**
-     * @throws HTTP \Exception 404  Not Found 
-     * 
+     * @throws HTTP \Exception 404  Not Found
+     *
      * @return render view
      */
     public function run()

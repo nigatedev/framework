@@ -9,6 +9,7 @@ namespace Nigatedev\Core\Http;
 
 use Nigatedev\Diyan\Diyan;
 use Nigatedev\Core\App;
+
 /**
  * Route generator class
  *
@@ -43,15 +44,14 @@ class Router
     public function get($path, $callback)
     {
         $this->routes["get"][$path] = $callback;
-
     }
     public function load($callback)
     {
-      $callback = require_once($callback);
+        $callback = require_once($callback);
       
-      foreach ($callback as $key => $value) {
-        $this->routes["get"][$key] = $value;
-      }
+        foreach ($callback as $key => $value) {
+            $this->routes["get"][$key] = $value;
+        }
     }
 
     /**
@@ -67,7 +67,7 @@ class Router
         $callback = $this->routes[$method][$path] ?? false;
 
 
-        if(is_string($callback)) {
+        if (is_string($callback)) {
             return $this->diyan->render($callback);
         }
 
@@ -76,7 +76,7 @@ class Router
             if (!$home) {
                 $this->response->setStatusCode(404);
                 $this->diyan->setBody($this->diyan->getHomeNotFound());
-               return $this->diyan->render(null, []);
+                return $this->diyan->render(null, []);
             }
         }
 
@@ -87,13 +87,13 @@ class Router
         }
 
         if (is_array($callback)) {
-          if(!class_exists($callback[0])){
+            if (!class_exists($callback[0])) {
                 $this->response->setStatusCode(404);
                 $this->diyan->setBody($this->diyan->getNotFound());
                 return $this->diyan->render(null, []);
-          } else {
-            $callback[0] = new $callback[0];
-          }
+            } else {
+                $callback[0] = new $callback[0];
+            }
         }
         echo call_user_func($callback);
     }
