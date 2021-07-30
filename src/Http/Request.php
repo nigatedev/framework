@@ -7,6 +7,8 @@
 
 namespace Nigatedev\Core\Http;
 
+use GuzzleHttp\Psr7\ServerRequest;
+
 /**
  * HTTP request class
  *
@@ -15,12 +17,18 @@ namespace Nigatedev\Core\Http;
 class Request
 {
   
+    private $serverRequest;
+  
+    public function __construct()
+    {
+        $this->serverRequest = ServerRequest::fromGlobals();
+    }
     /**
      * @return The method from the REQUEST_METHOD
      */
     public function getMethod()
     {
-        return strtolower($_SERVER["REQUEST_METHOD"]);
+        return strtolower($this->serverRequest->getMethod());
     }
   
     /**
@@ -28,7 +36,7 @@ class Request
      */
     public function getPath()
     {
-        $path = $_SERVER["REQUEST_URI"] ?? "/";
+        $path = $this->serverRequest->getUri()->getPath() ?? "/";
         $pos = strpos($path, "?");
     
         if (!$pos) {
