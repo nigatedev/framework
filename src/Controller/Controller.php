@@ -4,15 +4,15 @@
  *
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
- 
+   
 namespace Nigatedev\Core\Controller;
 
 use Nigatedev\Core\App;
 
 /**
- * App core controller
+ * App core controller class
  *
- * @Author Abass Ben Cheik <abass@todaysdev.com>
+ * @author Abass Ben Cheik <abass@todaysdev.com>
  */
 class Controller
 {

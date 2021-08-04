@@ -9,13 +9,14 @@ namespace Nigatedev\Core\Http;
 
 use Nigatedev\Diyan\Diyan;
 use Nigatedev\Core\App;
+use Nigatedev\Core\Debugger\Debugger;
 
 /**
- * Route generator class
+ * Route generator
  *
- * @Author Abass Ben Cheik <abass@todaysdev.com>
+ * @author Abass Ben Cheik <abass@todaysdev.com>
  */
-class Router
+class Router extends Debugger
 {
     /**
      * @var Request instance
@@ -75,7 +76,11 @@ class Router
             $home = isset($this->routes[$method]["/"]) ?? false;
             if (!$home) {
                 $this->response->setStatusCode(404);
-                $this->diyan->setBody($this->diyan->getHomeNotFound());
+                if ($this->getDebugMode()) {
+                   $this->diyan->setBody($this->diyan->getHomeNotFound());
+                } else {
+                   $this->diyan->setBody($this->diyan->getNotFound());
+                }
                 return $this->diyan->render(null, []);
             }
         }

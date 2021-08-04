@@ -6,13 +6,14 @@
  */
 
 namespace Nigatedev\Core\Http;
+use GuzzleHttp\Psr7\Response as serverResponse;
 
 /**
  * Response class
  *
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
-class Response
+class Response extends serverResponse
 {
     /**
      * Set header code status

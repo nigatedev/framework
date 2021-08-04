@@ -10,9 +10,9 @@ namespace Nigatedev\Core\Http;
 use GuzzleHttp\Psr7\ServerRequest;
 
 /**
- * HTTP request class
+ * HTTP request
  *
- * @Author Abass Ben Cheik <abass@todaysdev.com>
+ * @author Abass Ben Cheik <abass@todaysdev.com>
  */
 class Request
 {

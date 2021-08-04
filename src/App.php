@@ -7,11 +7,11 @@
  
 namespace Nigatedev\Core;
 
-use Nigatedev\Trunk;
 use Nigatedev\Diyan\Diyan;
 use Nigatedev\Core\Http\Request;
 use Nigatedev\Core\Http\Response;
-use Nigatedev\Core\Http\Router;
+use Nigatedev\Core\Http\Router;  
+use Nigatedev\Core\Debugger\Debugger;
 
 /**
  * The Nigatedev PHP framework main core application class
@@ -26,16 +26,16 @@ class App
      */
     public static App $app;
   
-    /**
-     * @var Diyan instance
-     */
-    public Diyan $diyan;
   
     /**
      * @var App instance
      */
     public static $APP_ROOT;
   
+    /**
+     * @var Diyan instance
+     */
+    public Diyan $diyan;
     /**
      * @var Response instance
      */
@@ -51,21 +51,27 @@ class App
      */
     public Router $router;
   
+    /**
+     * @var Debugger instance
+     */
+    public Debugger $debugger;
+  
   
     public function __construct($appRoot)
     {
-        $this->diyan = new Diyan();
-        $this->request = new Request();
-        $this->response = new Response();
-        $this->router = new Router($this->request);
         self::$app = $this;
         self::$APP_ROOT = $appRoot;
+        $this->request = new Request();
+        $this->response = new Response();
+        $this->debugger = new Debugger();
+        $this->router = new Router($this->request);
+        $this->diyan = new Diyan();
     }
-  
+    
     /**
-     * @throws HTTP \Exception 404  Not Found
+     * @throws \AppCoreException
      *
-     * @return render view
+     * @return HTTP Response and output
      */
     public function run()
     {
