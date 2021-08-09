@@ -18,11 +18,12 @@ class Controller
 {
     
     /**
-     * @param $view Diyan template engine view render
+     * @param string $view
+     * @param string[] $params
      *
-     * @return view template
+     * @return mixed
      */
-    public function render($view, $params = [])
+    public function render(string $view, array $params = [])
     {
         return App::$app->diyan->render($view, $params);
     }

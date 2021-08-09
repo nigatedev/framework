@@ -12,9 +12,10 @@ use Nigatedev\Core\Debugger\Debugger;
 
 /**
  * Errors Handler
- * 
+ *
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
-class ErrorHandler extends Debugger {
+class ErrorHandler extends Debugger
+{
   
 }

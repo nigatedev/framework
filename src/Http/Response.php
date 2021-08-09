@@ -6,6 +6,7 @@
  */
 
 namespace Nigatedev\Core\Http;
+
 use GuzzleHttp\Psr7\Response as serverResponse;
 
 /**
@@ -18,9 +19,9 @@ class Response extends serverResponse
     /**
      * Set header code status
      *
-     * @avr int $code
+     * @avr int|bool $code
      *
-     * @return new status code
+     * @return int|bool new status code
      */
     public function setStatusCode(int $code)
     {

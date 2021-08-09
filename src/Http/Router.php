@@ -19,7 +19,7 @@ use Nigatedev\Core\Debugger\Debugger;
 class Router extends Debugger
 {
     /**
-     * @var Request instance
+     * @var Request
      */
     private Request $request;
 
@@ -32,21 +32,34 @@ class Router extends Debugger
      * @var Diyan instance
      */
     public Diyan $diyan;
+    
+    /**
+     * @var array[] $routes
+     */
+    protected $routes = [];
 
     public function __construct(Request $request)
     {
         $this->response = new Response();
-        $this->request = new Request();
+        $this->request = new $request;
         $this->diyan = new Diyan();
     }
 
-    protected array $routes = [];
-
-    public function get($path, $callback)
+    /**
+     * @param string $path
+     * @param string $callback
+     *
+     * @return void
+     */
+    public function get(string $path, string $callback): void
     {
         $this->routes["get"][$path] = $callback;
     }
-    public function load($callback)
+    
+    /**
+     * @return void
+     */
+    public function load(string $callback)
     {
         $callback = require_once($callback);
       
@@ -56,9 +69,9 @@ class Router extends Debugger
     }
 
     /**
-     * @throws HTTP \Exception 404  Not Found
+     * @throw CoreAppException
      *
-     * @return HTTP Request header method and  uri
+     * @return mixed
      */
     public function pathResolver()
     {
@@ -77,9 +90,9 @@ class Router extends Debugger
             if (!$home) {
                 $this->response->setStatusCode(404);
                 if ($this->getDebugMode()) {
-                   $this->diyan->setBody($this->diyan->getHomeNotFound());
+                    $this->diyan->setBody($this->diyan->getHomeNotFound());
                 } else {
-                   $this->diyan->setBody($this->diyan->getNotFound());
+                    $this->diyan->setBody($this->diyan->getNotFound());
                 }
                 return $this->diyan->render(null, []);
             }

@@ -8,29 +8,34 @@ namespace Nigatedev\Core\Debugger;
    
 /**
  * Debugger class
- * 
+ *
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
-class Debugger {
+class Debugger
+{
   
   /**
    * @var bool $debugMode
    */
-  public static $debugMode = false;
+    public static $debugMode = false;
   
   /**
    * Enable debug mode
+   *
+   * @return void
    */
-  public static function enableDebugMode()
-  {
-    self::$debugMode = true;
-  }
+    public static function enableDebugMode(): void
+    {
+        self::$debugMode = true;
+    }
   
   /**
    * Get debug mode status
+   *
+   * @return bool
    */
-  public function getDebugMode(): bool
-  {
-    return self::$debugMode;
-  }
+    public function getDebugMode(): bool
+    {
+        return self::$debugMode;
+    }
 }

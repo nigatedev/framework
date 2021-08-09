@@ -16,7 +16,9 @@ use GuzzleHttp\Psr7\ServerRequest;
  */
 class Request
 {
-  
+    /**
+     * @var mixed $serverRequest
+     */
     private $serverRequest;
   
     public function __construct()
@@ -24,7 +26,7 @@ class Request
         $this->serverRequest = ServerRequest::fromGlobals();
     }
     /**
-     * @return The method from the REQUEST_METHOD
+     * @return string
      */
     public function getMethod()
     {
@@ -32,7 +34,7 @@ class Request
     }
   
     /**
-     * @return The path from the REQUEST_URI
+     * @return string the path without ?
      */
     public function getPath()
     {

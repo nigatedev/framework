@@ -10,13 +10,13 @@ namespace Nigatedev\Core;
 use Nigatedev\Diyan\Diyan;
 use Nigatedev\Core\Http\Request;
 use Nigatedev\Core\Http\Response;
-use Nigatedev\Core\Http\Router;  
+use Nigatedev\Core\Http\Router;
 use Nigatedev\Core\Debugger\Debugger;
 
 /**
  * The Nigatedev PHP framework main core application class
  *
- * @Author Abass Ben Cheik <abass@todaysdev.com>
+ * @author Abass Ben Cheik <abass@todaysdev.com>
  */
 class App
 {
@@ -28,7 +28,7 @@ class App
   
   
     /**
-     * @var App instance
+     * @var string $APP_ROOT
      */
     public static $APP_ROOT;
   
@@ -57,7 +57,7 @@ class App
     public Debugger $debugger;
   
   
-    public function __construct($appRoot)
+    public function __construct(string $appRoot)
     {
         self::$app = $this;
         self::$APP_ROOT = $appRoot;
@@ -69,11 +69,11 @@ class App
     }
     
     /**
-     * @throws \AppCoreException
+     * @throw AppCoreException
      *
-     * @return HTTP Response and output
+     * @return void
      */
-    public function run()
+    public function run(): void
     {
         echo $this->router->pathResolver();
     }

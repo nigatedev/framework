@@ -9,7 +9,7 @@ namespace Nigatedev\Core\Exceptions;
 
 /**
  * App core exceptions
- * 
+ *
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
 class AppCoreException extends \Exception
