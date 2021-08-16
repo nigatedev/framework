@@ -10,7 +10,7 @@ namespace Nigatedev\Core;
 use Nigatedev\Diyan\Diyan;
 use Nigatedev\Core\Http\Request;
 use Nigatedev\Core\Http\Response;
-use Nigatedev\Core\Http\Router;
+use Nigatedev\Core\Router\Router;
 use Nigatedev\Core\Debugger\Debugger;
 
 /**
