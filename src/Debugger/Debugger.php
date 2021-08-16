@@ -4,7 +4,7 @@
  *
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
-namespace Nigatedev\Core\Debugger;
+namespace Nigatedev\Debugger;
 
 use Whoops\Run;
 use Whoops\Handler\PrettyPageHandler;

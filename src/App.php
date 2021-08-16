@@ -5,13 +5,13 @@
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
  
-namespace Nigatedev\Core;
+namespace Nigatedev;
 
 use Nigatedev\Diyan\Diyan;
-use Nigatedev\Core\Http\Request;
-use Nigatedev\Core\Http\Response;
-use Nigatedev\Core\Router\Router;
-use Nigatedev\Core\Debugger\Debugger;
+use Nigatedev\Http\Request;
+use Nigatedev\Http\Response;
+use Nigatedev\Router\Router;
+use Nigatedev\Debugger\Debugger;
 
 /**
  * The Nigatedev PHP framework main core application class

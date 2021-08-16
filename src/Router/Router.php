@@ -5,13 +5,13 @@
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
 
-namespace Nigatedev\Core\Router;
+namespace Nigatedev\Router;
 
-use Nigatedev\Core\App;
-use Nigatedev\Core\Http\Request;
-use Nigatedev\Core\Http\Response;
+use Nigatedev\App;
+use Nigatedev\Http\Request;
+use Nigatedev\Http\Response;
 use Nigatedev\Diyan\Diyan;
-use Nigatedev\Core\Debugger\Debugger;
+use Nigatedev\Debugger\Debugger;
 /**
  * Route generator
  *

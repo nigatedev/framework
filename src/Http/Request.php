@@ -5,7 +5,7 @@
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
 
-namespace Nigatedev\Core\Http;
+namespace Nigatedev\Http;
 
 use GuzzleHttp\Psr7\ServerRequest;
 
