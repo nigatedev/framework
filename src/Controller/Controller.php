@@ -5,9 +5,9 @@
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
    
-namespace Nigatedev\Core\Controller;
+namespace Nigatedev\Controller;
 
-use Nigatedev\Core\App;
+use Nigatedev\App;
 
 /**
  * App core controller class
