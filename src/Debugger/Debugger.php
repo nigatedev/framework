@@ -5,7 +5,10 @@
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
 namespace Nigatedev\Core\Debugger;
-   
+
+use Whoops\Run;
+use Whoops\Handler\PrettyPageHandler;
+
 /**
  * Debugger class
  *
@@ -26,6 +29,11 @@ class Debugger
    */
     public static function enableDebugMode(): void
     {
+      
+        $whoops = new Run;
+        $whoops->pushHandler(new PrettyPageHandler);
+        $whoops->register();
+
         self::$debugMode = true;
     }
   
