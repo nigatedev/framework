@@ -59,7 +59,7 @@ class App
   
   
     /**
-     * @var Database instance
+     * @var DB instance
      */
     public DB $db;
   
@@ -67,7 +67,7 @@ class App
      * App constructor
      *
      * @param string $appRoot
-     * @param Nigatedev\Config\Configurator[] $configs
+     * @param array[] $configs
      */
     public function __construct(string $appRoot, array $configs)
     {

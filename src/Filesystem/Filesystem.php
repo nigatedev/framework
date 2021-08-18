@@ -20,11 +20,15 @@ class Filesystem
   
    /**
     * Default app root
+    * 
+    * @var string $ROOT
     */
     public static $ROOT;
     
     /**
      * Constructor
+     * 
+     * @param string $root
      */
     public function __construct($root)
     {

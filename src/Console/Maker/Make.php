@@ -77,8 +77,9 @@ class Make
     public function isController($controller)
     {
         if (isset($controller[2]) && !isset($controller[3])) {
-             $warning = readline("Generate [".$controller[2]. "] Controller ? (Y [yes] / N [No]) \n> ");
-            if (strtoupper($warning) === "Y") {
+             $controllerName = $controller[2];
+             $warning = strtoupper(readline("Generate [$controllerName] Controller ? (Y [yes] / N [No]) \n> "));
+            if ($warning === "Y") {
                 $this->controllerMaker->makeController($controller[2]);
             } else {
                 echo "Canceled !";

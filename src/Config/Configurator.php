@@ -23,14 +23,15 @@ class Configurator
     */
     private Filesystem $filesystem;
     
+    /**
+     * Constructor
+     * 
+     * @param string $ROOT
+     */
     public function __construct($ROOT)
     {
         $this->filesystem = new Filesystem($ROOT);
     }
-   /**
-    * @var static self array[] $configs
-    */
-    protected array $configs = [];
     
     /**
      * @var string $controllerDir
@@ -45,10 +46,11 @@ class Configurator
     /**
      * Get all configs
      *
+     * @return mixed
      */
     public function globals()
     {
-        $this->configs = [
+        return [
              "db" => [
                  "dsn"      => $_ENV["DSN"] ?? "",
                  "user"     => $_ENV["DB_USER"] ?? "",
@@ -57,7 +59,6 @@ class Configurator
              "controllerDir" => $this->getControllerDir(),
              "viewsDir" => $this->getViewsDir(),
         ];
-        return $this->configs;
     }
      
     /**
@@ -68,7 +69,7 @@ class Configurator
      */
     public function setControllerDir(string $controllerDir): void
     {
-        $this->controllerDir = $this->filesystem->isDir(Filesystem::$ROOT.$controllerDir);
+        $this->controllerDir = (string)$this->filesystem->isDir(Filesystem::$ROOT.$controllerDir);
     }
      
     /**
@@ -78,7 +79,7 @@ class Configurator
      */
     public function getControllerDir(): string
     {
-        return $this->controllerDir ?? $this->filesystem->isDir(Filesystem::$ROOT."/src/Controller");
+        return $this->controllerDir ?? (string)$this->filesystem->isDir(Filesystem::$ROOT."/src/Controller");
     }
      
      
@@ -90,7 +91,7 @@ class Configurator
      */
     public function setViewsDir(string $viewsDir): void
     {
-        $this->viewsDir = $this->filesystem->isDir(Filesystem::$ROOT.$viewsDir);
+        $this->viewsDir = (string)$this->filesystem->isDir(Filesystem::$ROOT.$viewsDir);
     }
      
     /**
@@ -100,6 +101,6 @@ class Configurator
      */
     public function getViewsDir(): string
     {
-        return $this->viewsDir ?? $this->filesystem->isDir(Filesystem::$ROOT."/views");
+        return $this->viewsDir ?? (string)$this->filesystem->isDir(Filesystem::$ROOT."/views");
     }
 }

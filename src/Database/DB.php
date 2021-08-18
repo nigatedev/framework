@@ -23,17 +23,22 @@ class DB
     private PDO $pdo;
     
    /**
-    * @var array[] $configs
+    * @var string[] $configs
     */
     protected array $configs = [];
     
-    public function __construct(array $configs)
+    /**
+     * @param string[] $configs
+     */
+    public function __construct($configs)
     {
         $this->configs = $configs;
     }
    
    /**
     * Get Database connection
+    * 
+    * @return mixed
     */
     public function getDb()
     {
