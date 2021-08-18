@@ -28,7 +28,7 @@ class Filesystem
      */
     public function __construct($root)
     {
-      self::$ROOT = $root;
+        self::$ROOT = $root;
     }
     
   /**

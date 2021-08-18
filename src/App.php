@@ -65,7 +65,7 @@ class App
   
     /**
      * App constructor
-     * 
+     *
      * @param string $appRoot
      * @param Nigatedev\Config\Configurator[] $configs
      */

@@ -12,6 +12,7 @@ use Nigatedev\Http\Request;
 use Nigatedev\Http\Response;
 use Nigatedev\Diyan\Diyan;
 use Nigatedev\Debugger\Debugger;
+
 /**
  * Route generator
  *

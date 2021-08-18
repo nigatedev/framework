@@ -14,7 +14,8 @@ use PDO;
  *
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
- class DB {
+class DB
+{
    
    /**
     * @var PDO $pdo
@@ -26,21 +27,21 @@ use PDO;
     */
     protected array $configs = [];
     
-   public function __construct(array $configs)
-   {
-     $this->configs = $configs;
-   }
+    public function __construct(array $configs)
+    {
+        $this->configs = $configs;
+    }
    
    /**
     * Get Database connection
     */
-   public function getDb()
-   {
-     try {
-      $this->pdo = new PDO($this->configs['dsn'], $this->configs['user'], $this->configs['password']);
-     } catch (\PDOException $e) {
-       die($e->getMessage());
-     }
-     return $this->pdo;
-   }
- }
+    public function getDb()
+    {
+        try {
+            $this->pdo = new PDO($this->configs['dsn'], $this->configs['user'], $this->configs['password']);
+        } catch (\PDOException $e) {
+            die($e->getMessage());
+        }
+        return $this->pdo;
+    }
+}

@@ -12,6 +12,7 @@ namespace Nigatedev\Support;
  *
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
- class Str {
+class Str
+{
    
- }
+}
