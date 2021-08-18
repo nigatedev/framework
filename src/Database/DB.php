@@ -38,7 +38,7 @@ use PDO;
    {
      try {
       $this->pdo = new PDO($this->configs['dsn'], $this->configs['user'], $this->configs['password']);
-     } catch (PDOException $e) {
+     } catch (\PDOException $e) {
        die($e->getMessage());
      }
      return $this->pdo;
