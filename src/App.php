@@ -12,6 +12,7 @@ use Nigatedev\Http\Request;
 use Nigatedev\Http\Response;
 use Nigatedev\Router\Router;
 use Nigatedev\Debugger\Debugger;
+use Nigatedev\Database\DB;
 
 /**
  * The Nigatedev PHP framework main core application class
@@ -57,7 +58,13 @@ class App
     public Debugger $debugger;
   
   
-    public function __construct(string $appRoot)
+    /**
+     * @var Database instance
+     */
+    public DB $database;
+  
+  
+    public function __construct(string $appRoot, array $configs)
     {
         self::$app = $this;
         self::$APP_ROOT = $appRoot;
@@ -66,6 +73,7 @@ class App
         $this->debugger = new Debugger();
         $this->router = new Router($this->request);
         $this->diyan = new Diyan();
+        $this->db = new DB($configs["db"]);
     }
     
     /**
