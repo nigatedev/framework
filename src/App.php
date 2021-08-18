@@ -61,9 +61,14 @@ class App
     /**
      * @var Database instance
      */
-    public DB $database;
+    public DB $db;
   
-  
+    /**
+     * App constructor
+     * 
+     * @param string $appRoot
+     * @param Nigatedev\Config\Configurator[] $configs
+     */
     public function __construct(string $appRoot, array $configs)
     {
         self::$app = $this;
