@@ -7,8 +7,8 @@
 
 namespace Nigatedev\Core\Handler;
 
-use Nigatedev\Core\Exceptions\AppCoreException;
-use Nigatedev\Core\Debugger\Debugger;
+use Nigatedev\Exceptions\AppCoreException;
+use Nigatedev\Debugger\Debugger;
 
 /**
  * Errors Handler
