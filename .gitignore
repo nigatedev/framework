@@ -1,3 +1,17 @@
-composer.phar
+### dependencies ###
+vendor/
 composer.lock
-/vendor/
+### END ###
+
+### squizlabs/php_codesniffer ###
+phpcs.xml
+### END ###
+
+### phpunit/phpunit ###
+phpunit.xml
+.phpunit.result.cache
+### END ###
+
+### phpstan ###
+phpstan.neon
+### END ###
