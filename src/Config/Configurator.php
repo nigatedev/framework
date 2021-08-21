@@ -7,8 +7,9 @@
  
 namespace Nigatedev\Config;
 
-use Nigatedev\Filesystem\Filesystem;
 use Nigatedev\App;
+use Nigatedev\Filesystem\Filesystem;
+use Nigatedev\Database\Config as DBConfig;
 
 /**
  * Global Configurator
@@ -19,10 +20,25 @@ class Configurator
 {
    
    /**
-    * @var Filesystem $fileSystem;
+    * @var Filesystem
     */
     private Filesystem $filesystem;
     
+    /**
+     * @var string
+     */
+      const APP_MIN_VERSION = "7.3";
+     
+    /**
+     * @var string
+     */
+      const CURRENT_VERSION = PHP_VERSION;
+     
+     /**
+      * @var Config
+      */
+     private $dbConfig;
+     
     /**
      * Constructor
      * 
@@ -34,33 +50,14 @@ class Configurator
     }
     
     /**
-     * @var string $controllerDir
+     * @var string
      */
     private $controllerDir;
      
     /**
-     * @var string $viewsDir
+     * @var string
      */
     private $viewsDir;
-     
-    /**
-     * Get all configs
-     *
-     * @return mixed
-     */
-    public function globals()
-    {
-        return [
-             "db" => [
-                 "dsn"      => $_ENV["DSN"] ?? "",
-                 "user"     => $_ENV["DB_USER"] ?? "",
-                 "password" => $_ENV["DB_PASSWORD"] ?? ""
-             ],
-             "controllerDir" => $this->getControllerDir(),
-             "viewsDir" => $this->getViewsDir(),
-        ];
-    }
-     
     /**
      * Set controllers directory
      *
@@ -103,4 +100,19 @@ class Configurator
     {
         return $this->viewsDir ?? (string)$this->filesystem->isDir(Filesystem::$ROOT."/views");
     }
+     
+    /**
+     * Get all configs
+     *
+     * @return mixed
+     */
+    public function configGlobals()
+    {
+        return [
+          "db" => DBConfig::getConfig(),
+             "controllerDir" => $this->getControllerDir(),
+             "viewsDir" => $this->getViewsDir(),
+      ];
+    }
+     
 }

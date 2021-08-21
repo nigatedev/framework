@@ -8,31 +8,29 @@
 namespace Nigatedev\Database;
 
 use PDO;
+use Nigatedev\Database\Adapter\MysqlAdapter;
+use Nigatedev\Database\Adapter\SqliteAdapter;
+use Nigatedev\Database\Exception\DBException;
 
 /**
  * Database connection
  *
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
-class DB
+class DB extends AbstractDB
 {
    
    /**
-    * @var PDO $pdo
-    */
-    private PDO $pdo;
-    
-   /**
     * @var string[] $configs
     */
-    protected array $configs = [];
+    protected array $config = [];
     
     /**
      * @param string[] $configs
      */
-    public function __construct($configs)
+    public function __construct($config)
     {
-        $this->configs = $configs;
+        $this->config = $config;
     }
    
    /**
@@ -42,11 +40,11 @@ class DB
     */
     public function getDb()
     {
-        try {
-            $this->pdo = new PDO($this->configs['dsn'], $this->configs['user'], $this->configs['password']);
-        } catch (\PDOException $e) {
-            die($e->getMessage());
-        }
-        return $this->pdo;
+      if ((string)$this->getDriver() === "mysql") {
+        return (new MysqlAdapter($this->config["mysql"]))->connect();
+      } elseif ((string)$this->getDriver() === "sqlite") {
+        return (new SqliteAdapter($this->config["sqlite"]))->connect();
+      }
     }
+    
 }

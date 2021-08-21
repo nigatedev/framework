@@ -12,7 +12,9 @@ use Nigatedev\Http\Request;
 use Nigatedev\Http\Response;
 use Nigatedev\Router\Router;
 use Nigatedev\Debugger\Debugger;
+use Nigatedev\Config\Configurator;
 use Nigatedev\Database\DB;
+use Nigatedev\Exception\AppException;
 
 /**
  * The Nigatedev PHP framework main core application class
@@ -88,6 +90,9 @@ class App
      */
     public function run(): void
     {
+      if (version_compare(Configurator::CURRENT_VERSION, Configurator::APP_MIN_VERSION, "<")) {
+        throw new AppException(printf("Fatal: Your are using PHP version %s which is not enough run Nigatedev app... minimum is %s", Configurator::CURRENT_VERSION, Configurator::APP_MIN_VERSION));
+      }
         echo $this->router->pathResolver();
     }
 }

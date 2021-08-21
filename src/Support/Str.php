@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /*
  * This file is part of the Nigatedev PHP framework package
  *
@@ -14,5 +16,14 @@ namespace Nigatedev\Support;
  */
 class Str
 {
-   
+   /**
+    * @param string $str
+    */
+    public static function length(string $str)
+    {
+      if (strlen($str) > 0) {
+        return true;
+      }
+      return false;
+    }
 }

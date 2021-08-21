@@ -5,14 +5,14 @@
  *  (c) Abass Ben Cheik <abass@todaysdev.com>
  */
  
-namespace Nigatedev\Exceptions;
+namespace Nigatedev\Exception;
 
 /**
  * App core exceptions
  *
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
-class AppCoreException extends \Exception
+class AppException extends \Exception
 {
   
 }
