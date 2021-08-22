@@ -34,14 +34,9 @@ class Configurator
      */
       const CURRENT_VERSION = PHP_VERSION;
      
-     /**
-      * @var Config
-      */
-     private $dbConfig;
-     
     /**
      * Constructor
-     * 
+     *
      * @param string $ROOT
      */
     public function __construct($ROOT)
@@ -112,7 +107,6 @@ class Configurator
           "db" => DBConfig::getConfig(),
              "controllerDir" => $this->getControllerDir(),
              "viewsDir" => $this->getViewsDir(),
-      ];
+        ];
     }
-     
 }

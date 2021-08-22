@@ -17,43 +17,36 @@ use PDO;
  */
 class SqliteAdapter implements AdapterInterface
 {
+  
   /**
    * @var string[]
    */
-   private array $config;
-   
-   /**
-    * @var string
-    */
-   private $fetch;
+    private array $config = [];
    
   /**
    * Constructor
+   *
+   * @param string[] $config
    */
-   public function __construct(array $config)
-   {
-     $this->config = $config;
-   }
-   
-    public function setFetchMode(string $fetch): void 
+    public function __construct(array $config)
     {
-      $this->fetch = $fetch;
+        $this->config = $config;
     }
    
-   public function connect()
-   {
-     $pdo = null;
+    public function connect()
+    {
+        $pdo = null;
      
-     $config = $this->config;
+        $config = $this->config;
      
-     try {
-       $pdo = new PDO($config["dsn"]);
-       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-       $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, $this->fetch ?? PDO::FETCH_OBJ);
-     } catch (PDOException $e) {
-       die($e->getMessage());
-     }
+        try {
+            $pdo = new PDO($config["dsn"]);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, $config["fetch"] ?? PDO::FETCH_OBJ);
+        } catch (\PDOException $e) {
+            die($e->getMessage());
+        }
      
-     return $pdo;
-   }
+        return $pdo;
+    }
 }

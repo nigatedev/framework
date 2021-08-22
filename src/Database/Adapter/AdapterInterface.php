@@ -16,5 +16,4 @@ use PDO;
  */
 interface AdapterInterface
 {
- public function setFetchMode(string $fetch): void;
 }

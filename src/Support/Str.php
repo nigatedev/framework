@@ -21,9 +21,9 @@ class Str
     */
     public static function length(string $str)
     {
-      if (strlen($str) > 0) {
-        return true;
-      }
-      return false;
+        if (strlen($str) > 0) {
+            return true;
+        }
+        return false;
     }
 }

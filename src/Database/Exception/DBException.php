@@ -13,4 +13,5 @@ namespace Nigatedev\Database\Exception;
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
 class DBException extends \Exception
-{}
+{
+}

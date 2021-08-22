@@ -18,29 +18,29 @@ use PDO;
 class Config
 {
 
-  public static function getConfig() {
+    public static function getConfig()
+    {
 
-    if (isset($_ENV["MYSQL_DRIVER"]) && isset($_ENV["SQLITE_DRIVER"])) {
-      throw new DBException("Fatal:  Error database configuration, only one driver can be used");
-    } elseif (isset($_ENV["MYSQL_DRIVER"]) && (string)$_ENV["MYSQL_DRIVER"] === "mysql") {
-      $driver = "mysql";
-    } elseif (isset($_ENV["SQLITE_DRIVER"]) && (string)$_ENV["SQLITE_DRIVER"] === "sqlite") {
-      $driver = "sqlite";
-    } else {
-      throw new DBException("Fatal: Can't find database configuration!");
-    }
+        if (isset($_ENV["MYSQL_DRIVER"]) && isset($_ENV["SQLITE_DRIVER"])) {
+            throw new DBException("Fatal:  Error database configuration, only one driver can be used");
+        } elseif (isset($_ENV["MYSQL_DRIVER"]) && (string)$_ENV["MYSQL_DRIVER"] === "mysql") {
+            $driver = "mysql";
+        } elseif (isset($_ENV["SQLITE_DRIVER"]) && (string)$_ENV["SQLITE_DRIVER"] === "sqlite") {
+            $driver = "sqlite";
+        } else {
+            throw new DBException("Fatal: Can't find database configuration!");
+        }
 
-    return [
-      "driver" => $driver,
-      "mysql" => [
+        return [
+        "driver" => $driver,
+        "mysql" => [
         "dsn" => $_ENV["MYSQL_DSN"] ?? "",
         "user" => $_ENV["DB_USER"] ?? "",
         "password" => $_ENV["DB_PASSWORD"] ?? "",
-      ],
-      "sqlite" => [
+        ],
+        "sqlite" => [
         "dsn" => $_ENV["SQLITE_DSN"]
-      ]
-    ];
-  }
-
+        ]
+        ];
+    }
 }

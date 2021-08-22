@@ -9,7 +9,7 @@
  
  /**
   * dumper
-  * 
+  *
   * @param mixed $data
   * @return void
   */
@@ -20,7 +20,7 @@ function dump($data)
  
  /**
   * dump and die
-  * 
+  *
   * @param mixed $data
   * @return void
   */
