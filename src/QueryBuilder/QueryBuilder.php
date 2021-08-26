@@ -20,51 +20,10 @@ namespace Nigatedev\QueryBuilder;
 */
 class QueryBuilder extends AbstractQueryBuilder implements QueryBuilderInterface
 {
-    /**
+     /**
      * @var mixed
      */
     protected $key = [];
-
-  /**
-  * @var string[] QUERY_KEY
-  */
-    protected const QUERY_KEY = [
-    "select",
-    "insert",
-    "update",
-    "delete"
-    ];
-
-  /**
-  * @var array<string, array> DEFAULT_KEY
-  */
-    protected const DEFAULT_KEY = [
-    "primary_key" => "",
-    "selectors" => [],
-    "distinct" => false,
-    "replace" => false,
-    "orderBy" => [],
-    "fields" => "*",
-    "where" => null,
-    "limit" => 0,
-    "table" => "",
-    "from" => [],
-    "type" => "",
-    "and" => [],
-    "raw" => "",
-    "or" => []
-    ];
-
-  /**
-  * @{inheritdoc}
-  */
-    public function isValidQueryKey(string $type): bool
-    {
-        if (in_array($type, self::QUERY_KEY)) {
-            return true;
-        }
-        return false;
-    }
 
     public function selectAll(): self
     {
@@ -112,7 +71,7 @@ class QueryBuilder extends AbstractQueryBuilder implements QueryBuilderInterface
   */
     public function selectQuery(): string
     {
-        $key = array_merge(self::DEFAULT_KEY, $this->key);
+        $key = array_merge(self::DEFAULT_SQL, $this->key);
 
         $sql = "SELECT {$key["fields"]} FROM {$key["table"]}";
 

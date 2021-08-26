@@ -18,9 +18,44 @@ namespace Nigatedev\QueryBuilder;
    */
 interface QueryBuilderInterface
 {
+  
+    /**
+     * Select query constructor
+     * 
+     * @return string
+     * @throws Exception
+     */
     public function selectQuery(): string;
+    
+    /**
+     * Insert query constructor
+     * 
+     * @return string
+     * @throws Exception
+     */
     public function insertQuery(): string;
+    
+    /**
+     * Update query constructor
+     * 
+     * @return string
+     * @throws Exception
+     */
     public function updateQuery(): string;
+    
+    /**
+     * Delete query constructor
+     * 
+     * @return string
+     * @throws Exception
+     */
     public function deleteQuery(): string;
+    
+    /**
+     * Raw query constructor
+     * 
+     * @return string
+     * @throws Exception
+     */
     public function rawQuery(): string;
 }
