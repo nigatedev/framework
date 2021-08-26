@@ -9,21 +9,46 @@ declare(strict_types=1);
 
 namespace Nigatedev\Support;
 
+use Nigatedev\Support\Exception\StrException;
+
 /**
- * Support and helper for strings
+ * String supports
  *
  * @author Abass Ben Cheik <abass@todaysdev.com>
  */
-class Str
+class Str extends AbstractStr
 {
+  
    /**
-    * @param string $str
+    * @{inheritdoc}
     */
-    public static function length(string $str)
+    public static function len($str)
     {
-        if (strlen($str) > 0) {
-            return true;
-        }
-        return false;
+        return self::strLength($str);
     }
+  
+   /**
+    * @{inheritdoc}
+    */
+    public static function pos($str, $pos)
+    {
+        return self::strPos($str, $pos);
+    }
+  
+   /**
+    * @{inheritdoc}
+    */
+    public static function isNum($isNum)
+    {
+        return self::isNumeric($isNum);
+    }
+  
+   /**
+    * @{inheritdoc}
+    */
+    public static function isInt($isInt)
+    {
+        return self::isInteger($isInt);
+    }
+          
 }

@@ -63,9 +63,9 @@ class ControllerMaker
     {
         if ($this->isSafeClassName($className)) {
             $this->make($this->constructor);
-            echo Colors::success($this->success["cname"]);
+            echo Colors::successTemp($this->success["cname"]);
         } else {
-            echo Colors::error($this->error["cname"]);
+            echo Colors::errorTemp($this->error["cname"]);
         }
     }
 
@@ -120,7 +120,7 @@ class ControllerMaker
         $loaderFile = $this->dirName."/config/loader.php";
 
         if (is_file("{$cDir}{$cName}.php")) {
-            die(Colors::error("Can't create an existence controller class ".$cName));
+            die(Colors::erroTempr("Can't create an existence controller class ".$cName));
         }
         if (is_dir($cDir) && is_file(__DIR__ ."/ControllerModel.php")) {
             file_put_contents("{$cDir}{$cName}.php", str_replace(["ControllerModel", "index"], [$cName, $this->lowerAndReplace("Controller", "", $cName)], $this->getModel("/ControllerModel.php")));

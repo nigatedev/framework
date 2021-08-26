@@ -55,13 +55,13 @@ class Make
                     $this->isController($this->arg);
                     break;
                 case "-h":
-                    echo Colors::info("Sorry no help has been written yet");
+                    echo Colors::infoTemp("Sorry no help has been written yet");
                     break;
                 case "--help":
-                    echo Colors::info("Sorry no help has been written yet");
+                    echo Colors::infoTemp("Sorry no help has been written yet");
                     break;
                 default:
-                     echo Colors::warning("Unkwon command");
+                     echo Colors::warningTemp("Unkwon command");
                     break;
             }
         } else {
@@ -85,7 +85,7 @@ class Make
                 echo Colors::danger("N")." Canceled !";
             }
         } else {
-            $controller[2] = readline(Colors::temp("INFO", "Controller class name E.g:", Colors::info('HomeController')));
+            $controller[2] = readline(Colors::temp("INFO", "Controller name E.g:", Colors::info('HomeController')));
             $this->controllerMaker->makeController($controller[2]);
         }
     }

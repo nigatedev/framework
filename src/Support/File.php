@@ -19,7 +19,7 @@ class File
     * Check whether file exist or not
     *
     * @param string $fileName
-    * @return true|false
+    * @return bool
     */
     public static function isFile(string $fileName): bool
     {
@@ -30,7 +30,7 @@ class File
     * Check whether directory exist or not
     *
     * @param string $dirName
-    * @return true|false
+    * @return bool
     */
     public static function isDir(string $dirName): bool
     {
