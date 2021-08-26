@@ -33,7 +33,6 @@ abstract class AbstractDB
          $this->driver = $driver;
     }
   
-  
   /**
    * Get Database driver, example mysql or sqlite
    *
