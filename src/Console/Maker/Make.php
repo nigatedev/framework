@@ -78,14 +78,14 @@ class Make
     {
         if (isset($controller[2]) && !isset($controller[3])) {
              $controllerName = $controller[2];
-             $warning = strtoupper(readline("Generate [$controllerName] Controller ? (Y [yes] / N [No]) \n> "));
+             $warning = strtoupper(readline(Colors::temp("INFO", "Generate", Colors::info("[". $controllerName ."]") . " Controller ? (".Colors::success("Y")."/".Colors::danger("N").", YES/NO) ")));
             if ($warning === "Y") {
                 $this->controllerMaker->makeController($controller[2]);
             } else {
-                echo "Canceled !";
+                echo Colors::danger("N")." Canceled !";
             }
         } else {
-            $controller[2] = readline("Controller class name E.g: HomeController \n>  ");
+            $controller[2] = readline(Colors::temp("INFO", "Controller class name E.g:", Colors::info('HomeController')));
             $this->controllerMaker->makeController($controller[2]);
         }
     }
