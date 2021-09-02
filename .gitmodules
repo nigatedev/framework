@@ -1,0 +1,15 @@
+[submodule "Filesystem"]
+	path = Filesystem
+	url = https://github.com/nigatedev/filesystem
+[submodule "Dumper"]
+	path = Dumper
+	url = https://github.com/nigatedev/dumper
+[submodule "Support"]
+	path = Support
+	url = https://github.com/nigatedev/support
+[submodule "QueryBuilder"]
+	path = QueryBuilder
+	url = https://github.com/nigatedev/query-builder
+[submodule "Console"]
+	path = Console
+	url = https://github.com/nigatedev/console
