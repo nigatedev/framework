@@ -13,3 +13,6 @@
 [submodule "Console"]
 	path = Console
 	url = https://github.com/nigatedev/console
+[submodule "FrameworkBundle"]
+	path = FrameworkBundle
+	url = https://github.com/nigatedev/framework-bundle
