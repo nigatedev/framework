@@ -16,3 +16,6 @@
 [submodule "FrameworkBundle"]
 	path = FrameworkBundle
 	url = https://github.com/nigatedev/framework-bundle
+[submodule "Yaml"]
+	path = Yaml
+	url = https://github.com/nigatedev/yaml
